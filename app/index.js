@@ -1,7 +1,7 @@
-import React,{component} from 'react';
+import React,{Component} from 'react';
 import Reactdom from 'react-dom';
 
-class App extends component{
+class App extends Component{
     constructor(props){
         super(props);
     }
@@ -12,6 +12,6 @@ class App extends component{
     }
 }
 Reactdom.render(
-    <App/>,
+    <App />,
     document.getElementById('wrapContainer')
 )
