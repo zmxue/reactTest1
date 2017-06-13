@@ -1,9 +1,17 @@
 const webpack = require('webpack');
 const path = require('path');
+const fs = require('fs');
+//遍历输入文件
+const pages = fs.readdirSync(path.join('./app/')).filter(function (page) {
+    return page.indexOf('.') !== 0;
+});
+const entry = {};
+pages.forEach(function(page){
+    let pageName = page.split('.')[0];
+    entry[pageName] = ['./app',page].join('/');
+});
 module.exports = {
-    entry: {
-        "index": './app/index.js'
-    },
+    entry: entry,
     output: {
         path: path.resolve(__dirname, './build'),
         filename: "[name].js"
